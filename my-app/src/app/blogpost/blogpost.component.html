@@ -1,0 +1,21 @@
+
+<div class = "container">
+    <div class="row">
+        <div class="col-6">
+            <ul class="posts">
+                <li *ngFor="let post of posts"
+                  [class.selected]="post === selectedPost"
+                  (click)="onSelect(post)">
+                  <span class="badge"><h1>{{post.title}}</h1></span> 
+                  <p>{{ post.body }}</p>
+                </li>
+              </ul>
+        </div>
+        <div class="col-6">
+            <app-post-detail [post]="selectedPost"></app-post-detail>
+        </div>
+    </div>
+</div>
+
+
+
