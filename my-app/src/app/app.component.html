@@ -1,7 +1,31 @@
-<p>{{ title }}</p>
 
-<body>
-    <app-blogpost></app-blogpost>
-</body>
+<h1>{{title}}</h1>
+<nav>
+  <a routerLink="/dashboard"> Dashboard </a>
+   
+  <a routerLink="/posts"> Posts </a>
+</nav>
 
+<div class="containet">
+    <div class="row">
+        <div class="col">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+<div class="containet">
+    <div class="row">
+        <div class="col">
+            <app-messages></app-messages>
+        </div>
+    </div>
+</div>
+
+<div class="containet">
+    <div class="row">
+        <div class="col">
+            <app-citations></app-citations>
+        </div>
+    </div>
+</div>
 
