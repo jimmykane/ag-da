@@ -1,4 +1,30 @@
+<h1>{{title}}</h1>
+<nav>
+  <a routerLink="/dashboard"> Dashboard </a>
+   
+  <a routerLink="/posts"> Posts </a>
+</nav>
 
-<p>{{ title | uppercase }}</p>
+<div class="containet">
+    <div class="row">
+        <div class="col">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+<div class="containet">
+    <div class="row">
+        <div class="col">
+            <app-messages></app-messages>
+        </div>
+    </div>
+</div>
 
-<app-posts></app-posts>
+<div class="containet">
+    <div class="row">
+        <div class="col">
+            <app-citations></app-citations>
+        </div>
+    </div>
+</div>
+

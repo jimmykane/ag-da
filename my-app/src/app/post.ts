@@ -6,3 +6,5 @@ export interface Post {
     description: string;
     im: string;
   }
+
+

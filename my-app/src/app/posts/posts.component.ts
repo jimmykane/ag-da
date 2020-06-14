@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Post} from '../post';
-import { POSTS } from '../mock-posts';
+import { PostService } from '../post.service';
+
 
 @Component({
   selector: 'app-posts',
@@ -9,16 +10,31 @@ import { POSTS } from '../mock-posts';
 })
 export class PostsComponent implements OnInit {
 
-  posts= POSTS;
-  selectedPost: Post;
+  posts: Post[];
 
-  constructor() { }
+  constructor(private postService: PostService) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.getPosts();
   }
 
-  onSelect(post: Post): void {
-    this.selectedPost = post;
+  getPosts(): void {
+    this.postService.getPosts()
+        .subscribe(posts => this.posts = posts);
+  }
+
+  add(title: string): void {
+    title = title.trim();
+    if (!name) { return; }
+    this.postService.addPost({ title } as Post)
+      .subscribe(post => {
+        this.posts.push(post);
+      });
+  }
+
+  delete(post: Post): void {
+    this.posts = this.posts.filter(h => h !== post);
+    this.postService.deletePost(post).subscribe();
   }
 
 }
